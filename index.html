@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>KnockOn Records 노크온 레코드</title>
+  <meta name="description" content="노크온 레코드(KnockOn Records). 뜻이 맞는 아티스트들과 함께, 그냥 하고 싶은 건 해도 된다고 새 힘을 주는 독립 레이블.">
+  <meta property="og:title" content="KnockOn Records 노크온 레코드">
+  <meta property="og:description" content="노크온 레코드(KnockOn Records). 뜻이 맞는 아티스트들과 함께, 그냥 하고 싶은 건 해도 된다고 새 힘을 주는 독립 레이블.">
+  <meta property="og:image" content="https://knockonrecords.com/images/hero-silence.jpg">
+  <link rel="icon" href="images/logo-128.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&family=Black+Han+Sans&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@400;500&display=swap">
+  <link rel="stylesheet" href="style.css">
+<style>
+
+:root{--violet:#2b1f3f}
+
+.bar{display:grid;grid-template-columns:48px 1fr;height:48px;border-bottom:1px solid var(--fg)}
+.tile{background:var(--accent);display:grid;place-items:center}.tile img{height:36px}
+.bar .m{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-inline:16px}
+.bar .m .name{font-size:15px;font-weight:500;white-space:nowrap}
+.bar nav{display:flex;gap:20px}
+.bar nav a{font-family:var(--f-mono);font-size:12px;text-transform:uppercase;letter-spacing:.04em;white-space:nowrap}
+.bar nav a.cur{color:var(--red)}
+
+.type{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:minmax(0,auto);border-bottom:1px solid var(--fg);padding:16px 16px 24px;gap:0 8px;align-items:end;overflow:hidden}
+.type a,.type span{display:block;min-width:0}
+.w{font-family:"Big Shoulders Display","Black Han Sans",sans-serif;font-weight:900;text-transform:uppercase;line-height:.82;letter-spacing:-.01em}
+.k{font-family:var(--f-mono);font-size:12px;text-transform:uppercase;letter-spacing:.04em;line-height:1.3}
+.br::before{content:"[ "}.br::after{content:" ]"}
+.vert{writing-mode:vertical-rl;transform:rotate(180deg);justify-self:start}
+.t1{grid-column:1/9;font-size:clamp(72px,15.5vw,236px)}           
+.t2{grid-column:9/13;align-self:end;padding-bottom:.4em}          
+.t3{grid-column:1/3;font-size:clamp(40px,7.5vw,112px)}            
+.t4{grid-column:3/10;font-size:clamp(72px,15.5vw,236px)}          
+.t5{grid-column:10/13;font-size:clamp(28px,4.2vw,64px)}           
+.t6{grid-column:1/6;font-size:clamp(34px,6vw,92px);margin-top:16px} 
+.t6 a{padding-block:.06em}
+.t7{grid-column:6/13;margin-top:16px;display:grid;grid-template-columns:1fr 1fr;gap:4px 16px;align-self:start;border-top:1px solid var(--fg);padding-top:10px}
+.t7 b{font-weight:500;font-size:15px;display:block}
+.type a:hover{color:var(--red)}
+
+.sideA{display:grid;grid-template-columns:4fr 8fr;background:var(--w);color:var(--bg)}
+.sideA .lab{padding:16px;border-right:1px solid rgba(228,210,190,.3);display:grid;align-content:space-between;gap:24px}
+.sideA .lab .w{font-size:clamp(48px,8vw,120px)}
+.sideA .rel{display:grid;grid-template-columns:260px 1fr;gap:24px;padding:16px;align-items:start}
+.sideA .rel img{width:100%;aspect-ratio:1;object-fit:cover}
+.sideA h2{font-size:28px;font-weight:500;line-height:1.2}
+.sideA p{font-size:15px;line-height:1.6;max-width:40em;color:rgba(228,210,190,.6)}
+.sideA .row{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:14px}
+.sideA .row a{border-bottom:1px solid currentColor;padding-bottom:1px}
+.sideA .row a:hover{color:var(--accent)}
+
+.sideB{display:grid;grid-template-columns:4fr 8fr;background:var(--violet);color:var(--bg);border-top:1px solid rgba(228,210,190,.3)}
+.sideB .lab{padding:16px;border-right:1px solid rgba(228,210,190,.3);display:grid;align-content:space-between;gap:24px}
+.sideB .lab .w{font-size:clamp(48px,8vw,120px)}
+.sideB .lab p{font-size:15px;line-height:1.6;max-width:22em}
+.sideB .vols{padding:16px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-content:start}
+.sleeve{aspect-ratio:1;border:1px solid var(--bg);padding:10px;display:grid;grid-template-rows:auto 1fr auto;color:var(--bg)}
+.sleeve .w{font-size:clamp(40px,6vw,88px);align-self:end}
+.sideB .more{grid-column:1/-1;display:flex;justify-content:space-between;gap:12px;padding-top:4px}
+.sideB .more a{border-bottom:1px solid currentColor}
+.foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px 24px;padding:16px;border-top:1px solid var(--fg)}
+.switch a{background:var(--bg);color:var(--fg)}
+@media(max-width:800px){
+ .bar nav{display:none}
+ .type{grid-template-columns:repeat(6,1fr);padding:12px 12px 20px}
+ .t1{grid-column:1/7;font-size:clamp(64px,19vw,120px)}.t2{grid-column:1/7;padding:6px 0 10px;align-self:start}
+ .t3{grid-column:1/2;font-size:48px}.t4{grid-column:2/7;font-size:clamp(64px,19vw,120px)}
+ .t5{grid-column:1/7;writing-mode:horizontal-tb;transform:none;font-size:34px;margin-top:10px}
+ .t6{grid-column:1/7;font-size:40px}.t7{grid-column:1/7;grid-template-columns:1fr}
+ .sideA,.sideB{grid-template-columns:1fr}.sideA .lab,.sideB .lab{border-right:0;border-bottom:1px solid rgba(228,210,190,.3)}
+ .sideA .rel{grid-template-columns:1fr}
+ .sideB .vols{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+<body>
+
+<header class="top" id="top">
+  <a class="tile" href="index.html" aria-label="KnockOn Records 홈"><img src="images/logo.png" alt="KnockOn Records"></a>
+  <div class="menu">
+    <a class="name" href="index.html">KnockOn Records</a>
+    <button class="menu-btn" type="button" onclick="document.getElementById('top').classList.toggle('is-open')">Menu</button>
+    <nav class="nav" aria-label="주 메뉴">
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="artists.html">Artists</a>
+      <a href="releases.html">Releases</a>
+      <a href="releaselab.html">ReleaseLab</a>
+      <a href="videos.html">Videos</a>
+      <a href="about.html">About</a>
+      <a href="studio.html">AI Studio</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+
+<section class="type" aria-label="KnockOn Records">
+  <a class="w t1" href="about.html">KnockOn</a>
+  <span class="k t2"><span class="br">Independent label · Est. 2021</span><br><span class="br">Side A · Releases · 02</span><br><span class="br">Side B · ReleaseLab · Vol. 01</span></span>
+  <span class="w t3 vert">2021</span>
+  <a class="w t4" href="releases.html">Records</a>
+  <span class="w t5 vert">Side A / Side B</span>
+  <span class="w t6"><a href="artist-mymars.html">MyMars</a><a href="artist-bukchon.html">북촌홍반장</a><a href="artist-guacamolly.html">GuacaMolly</a></span>
+  <div class="t7">
+    <a href="releases.html#silence"><span class="k">Now · No. 002 · 2026.03.18</span><b>말할 수 없는 것. (Silence Between Words)</b><span class="k">박지은(MyMars) · Digital Single</span></a>
+    <a href="releases.html#hangok"><span class="k">Next · 2026.11</span><b>#한곡안부 EP.01 짱구와 커피를</b><span class="k">북촌홍반장 · Series</span></a>
+  </div>
+</section>
+
+<section class="sideA">
+  <div class="lab"><span class="k">Side A</span><span class="w">Releases</span><span class="k">Official catalogue · 02</span></div>
+  <div class="rel">
+    <img src="images/silence-between-words.jpg" alt="말할 수 없는 것. 커버">
+    <div>
+      <span class="k" style="color:rgba(228,210,190,.6)">No. 002 · Digital Single · 2026.03.18</span>
+      <h2 style="margin-top:6px">말할 수 없는 것.</h2>
+      <p style="margin-top:10px">『Acid Memories: A Song Book』의 첫 장. 국악 장단에서 착안한 변박 리듬과 모달 하모니, 거문고와 리버스 기타가 한 공간에서 만납니다.</p>
+      <div class="row k"><a href="artist-mymars.html">박지은(MyMars)</a><a href="https://linktr.ee/SilenceBetweenWords" target="_blank" rel="noopener">Listen</a><a href="https://youtu.be/brgR5-PZNLY" target="_blank" rel="noopener">Official MV</a><a href="releases.html#silence">Credits</a><a href="releases.html">All releases</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="sideB">
+  <div class="lab">
+    <span class="k">Side B</span>
+    <span><span class="w">ReleaseLab</span><p style="margin-top:12px">음악은 각자 만들지만, 세상에는 함께 알립니다.<br>노크온 릴랩 참가자들이 정식 발매한 음원의 아카이브.</p></span>
+    <span class="k" style="color:rgba(228,210,190,.6)">Vol. 01 · 2026 · KnockOn AI Studio</span>
+  </div>
+  <div class="vols">
+    <div class="sleeve"><span class="k">Vol. 01 · 01</span><span class="w">01</span><span class="k">아티스트 · 제목 · 발매일</span></div>
+    <div class="sleeve"><span class="k">Vol. 01 · 02</span><span class="w">02</span><span class="k">아티스트 · 제목 · 발매일</span></div>
+    <div class="sleeve"><span class="k">Vol. 01 · 03</span><span class="w">03</span><span class="k">아티스트 · 제목 · 발매일</span></div>
+    <div class="more k"><span>Vol. 01 / 02 / 03 …</span><a href="releaselab.html">Explore archive →</a></div>
+  </div>
+</section>
+
+
+</main>
+
+<footer class="foot gx">
+  <ul>
+    <li><a href="https://www.instagram.com/knockon_records/" target="_blank" rel="noopener">Instagram</a></li>
+    <li><a href="https://www.threads.com/@knockon_records" target="_blank" rel="noopener">Threads</a></li>
+    <li><a href="https://www.youtube.com/@mymars2025" target="_blank" rel="noopener">YouTube</a></li>
+    <li><a href="studio.html">KnockOn AI Studio</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <span><span class="name">KnockOn Records</span> © 2026</span>
+</footer>
+
+</body>
+</html>
